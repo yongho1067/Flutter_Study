@@ -1,0 +1,16 @@
+void main(){
+  
+  AA aa1 = AA(); // new는 자동으로 처리해줌
+  aa1._id = 10;
+  aa1._name = "박용호";
+  
+  print("id는 ${aa1._id}\nname은 ${aa1._name}");
+ 
+}
+
+class AA {
+  int? _id;
+  String? _name;
+  
+  
+}

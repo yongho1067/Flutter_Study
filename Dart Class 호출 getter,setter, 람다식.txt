@@ -1,0 +1,39 @@
+void main(){
+  // lambda 람다 식
+  // => 로 사용함
+  // 람다식에 의해 { }를 => 로 변환해서 사용할수있음
+  
+  // 함수에서 메소드 3형식
+  //print(kaja(5,70));
+  
+  AA aa1 = AA(); // new는 자동으로 처리해줌
+
+  int? i;
+  String? j;
+
+  aa1.set_id(100);
+  aa1.set_name("박용호");
+  
+  i = aa1.get_id();
+  j = aa1.get_name();
+  
+  print("number는 $i \nname은 $j");
+  
+  
+}
+
+int kaja(int aa, int bb) => aa + bb;
+
+class AA {
+  int? _id;
+  String? _name;
+  
+  int? get_id() => _id!;
+  
+  set_id(int? id) => _id = id; // this는 매개변수 하지만 dart에서는 사용못하는듯?
+  
+  String? get_name() => _name!;
+  
+  set_name(String? name) => _name = name;
+  
+}

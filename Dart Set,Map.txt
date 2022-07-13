@@ -1,0 +1,47 @@
+void main(){
+  //List, Set, Map
+  
+  // 중복x 
+  Set <int> ki = {175,160,180};
+  
+  print(ki);
+ 
+  print(ki.first);
+  print(ki.last);
+  print(ki.elementAt(1));
+  
+  ki.add(190);
+  ki.add(200);
+  ki.add(130);
+  
+  print(ki);
+  
+  // Map 키와 값이 있음
+              // 키 : 값
+  Map map2 = {"babo":"ondal","byum":"satto"};
+  print(map2["babo"]); // Map에서는 index를 사용하지 않고 map2[키 값]이 들어감
+  print(map2.keys);
+  print(map2.values);
+  
+  Map <String, int> userMap={"Hp" : 100, "Damage" : 20, "Shiled" : 10};
+
+
+  print(userMap);
+  print(userMap.length);
+  
+  print("유저의 Hp는 : ${userMap["Hp"]}");
+  userMap["level"] = 30;
+  print("유저의 Level은 : ${userMap["level"]}");
+
+ // var는 타입이 유동적이나 한번 정해지면 그걸로 끝
+  
+  var aa = 555;
+  dynamic bbb = 789.55; //dynamic은 타입이 유동적
+  print(bbb);
+  bbb="ondal";
+  print(bbb);
+
+
+
+
+}

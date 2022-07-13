@@ -1,0 +1,19 @@
+void main(){
+  
+  
+  Map <String, dynamic> UserInfo = {
+    
+    "nick_name": "대한민국육군헌병",
+    "level" : 55,
+    "class" : "Archer",
+    "hp,mp" : [200,100]
+  };
+  
+  print(UserInfo);
+  print(UserInfo.length);
+  
+  print(UserInfo['level']);
+  print(UserInfo["hp,mp"][0]);
+  
+  
+}

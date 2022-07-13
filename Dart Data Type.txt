@@ -1,0 +1,54 @@
+
+
+void main(){
+  // 단일주석
+  /* 전체 주석 */
+  //todo: 열심히 공부하기 
+  // 위 방법을 사용하면 todo주석처리를 모두 볼수있음
+  
+  int aa = 100;
+  double bb = 5.85;
+  
+  // 자바스크립트에서 자료형 출력 가능
+  print(bb.runtimeType);
+
+  String cc = "ondal";
+  print('cc : ${cc}');
+  print('cc : ${cc.runtimeType}');
+  print("");
+  
+  bool dd = true;
+  print('dd : ${dd}');
+  print('dd : ${dd.runtimeType}');
+  print("");
+  
+  
+  num ff = 200;
+  print('ff : ${ff}');
+  print('ff : ${ff.runtimeType}');
+  print("");
+  
+  num gg = 250.7;
+  print('gg : ${gg}');
+  print('gg : ${gg.runtimeType}');
+  print("");
+  
+  var hh = 3.14;
+  print('hh : ${hh}');
+  print('hh : ${hh.runtimeType}');
+  print("");
+  
+  var jj = "Hello World";
+  print('jj : ${jj}');
+  print('jj : ${jj.runtimeType}');
+  print("");
+  
+ // hh = "String으로 가능?"; 불가능 
+ // 이미 데이터 형에 대한 데이터 공간이 확보되있어서
+  
+  //print(aa,bb);
+  print('${aa}, ${bb}');
+  
+
+
+}

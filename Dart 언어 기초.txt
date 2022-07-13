@@ -1,0 +1,54 @@
+android & ios 앱 ==> 크로스 플랫폼 (멀티 플랫폼)
+ㄴ 따로국밥
+android studio / swift ...xcode..
+
+==> 개발자 최소 4명 기간 : 3개월
+	수주 금액-> 5천만원 이게 맞나?
+
+react native	 /	 flutter
+2011년	   	/ 	2017년
+(javascript) 	/ 	(dart)
+			dart --> android studio --> flutter 
+############## DART ##################
+
+###. DART 언어 란 ###
+	#. 확장자는 .dart
+	#. 2011년 google이 개발한 언어로 기본적으로 c언어 밒 java 객체 지향과 많이 유사함
+	#. front-end javascript 역할을 대신하기 위한 web programming 언어
+	#. static + dynamic language
+	#. 숫자는 물론 everything is a object
+	#. Single thread, 비동기 방식
+	#. 배열 x, collection O
+
+
+###. DART file 만들어보기 ###
+
+##########################
+dartPad로 일단 이동하기
+##########################
+
+#. dart 언어의 data type
+
+int : 정수형
+double : 실수형
+num : int, double을 표현
+
+int aa = 100;
+double bb = 37.8;
+num cc = aa;
+
+bool : true, false
+
+String : 문자열(작은따옴표, 큰따옴표 모두 가능)
+
+var : javascript의 var와 유사
+
+var aa = 100; //int
+var bb = 50.88 //double
+var cc = 'ondal'; // String
+
+dynamic
+
+List : 순서 o, 중복 o 인 집합
+Set : 순서 x, 중복 x 인 집합
+Map : Key-value 집합

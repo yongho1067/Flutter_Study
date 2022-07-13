@@ -1,0 +1,9 @@
+void main(){
+  
+  List <String> classes = ["전사", "마법사", "궁수"];
+  
+  for(String jobs in classes){
+    print("직업 호출 : ${jobs}");
+  }
+  
+}

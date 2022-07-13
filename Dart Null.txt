@@ -1,0 +1,73 @@
+void main(){  
+
+// 10/3 = 3.3333333333333
+  // -> 정수형으로 나오게 하고 싶다.
+  // ~/ 로 소수점 누락 가능
+
+  
+  int a = 10~/3;
+  print("\n10~/3 = $a");
+  
+  // 10~/3.0 을 해도 똑같음
+  
+  // null safety 중요
+  // NPE -> Null Poin Exception 를 편집부터 null check 까지 해서
+  // 아예 에러가 뜨지 않게 방지 -> 빌드 못함
+  
+  // non-nullable vs nullable
+  
+  // non-nullable -> null 값을 절대 허용하지 않음
+  // nullable -> null 값을 허용
+  
+  int aa = 100;
+  String cc = "";
+  
+  // nullable -> 변수 뒤에 ? 를 달면 Null 값을 허용함
+  int bb = 100;
+  String? dd = null;
+  
+  // 즉, ?는 nullable  . ! -> 절대로 null이 들어가지 않는것을 보장함
+  // late 초기값이 나중에 들어간다
+  // required -> 무조건 값이 들어와야 함
+  
+  late int aa2 = 10;
+  //required int aa3 = 20;
+  
+  dynamic b;
+  
+  // dart 에서는 변수 선언시 값을 선언하지 않으면 자동으로 null 값
+  // 초기치가 없는 경우 non-nullable 에서 에러
+  // Non-nullable variable 'b' must be assigned before it can be used.
+  // print(b);
+  
+  // var? aa=null; -> var 타입은 ?를 쓰지 못함/ 데이터 형을 선언 할수 없어서
+  // dynamic은 ?가 없어도 nullable 왜?
+  
+  print(b);
+  
+  // 형변환에서 int? = int
+  
+  int? num1 = 10;
+  int num2 = 20;
+  
+
+  num1 = num2; // int? 가 int의 부모라서 대입 가능
+  print(num1);
+  
+  int aa100 = 100;
+  int? bb100 = 200;
+  
+  aa100 = bb100;
+  
+  print(aa100);
+  
+  String? str11;
+  print(str11?.length); //null
+  
+  int? aa11;
+  print(aa11?.round()); //null
+  
+  int? aa22=null;
+  print(aa22);          //null
+  
+  }

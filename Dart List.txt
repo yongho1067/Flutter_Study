@@ -1,0 +1,29 @@
+void main(){
+  // List, Set, Map
+  List list2 = [100,200,500]; // 순서 o, 중복 o
+  
+  // 제네릭
+  List <int> list3=[1000,2000,5000];
+  
+  int a = list2.length; // 길이구하기
+  print(a);
+  
+  list2.add(200);     // 데이터 추가하기
+  print(list2.length); 
+  
+  print('list2 의 전체 값은 : ${list2}');
+  print('list2 의 [0] 값은 : ${list2[0]}');
+  
+  print("list3 의 전체 값은 : ${list3}");
+  print("list3 의 [1] 값은 : ${list3[1]}");
+  
+  // 한사람의 자료를 컬렉션에 넣어보기
+  
+                 //닉네임, 공격력, 성별, 직업
+  var listUser = ["유저1" , 20, "Male", "Beginner"];
+  
+  print(listUser);
+  print(listUser.runtimeType);
+  
+ 
+}
