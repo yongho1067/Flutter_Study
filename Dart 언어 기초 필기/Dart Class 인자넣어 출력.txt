@@ -1,0 +1,37 @@
+// 접근지정자 자바는 4개 public private default protect
+// dart는 2개         public private
+// dart의 프라이빗은 패키지내에서 사용가능, _사용
+
+void main(){
+  dynamic town = Town("변이된 버섯마을",120);
+  
+  town.welcome();
+  town.level();
+  print(town.toString());
+    
+  
+}
+
+class Town {
+  String townName = "";
+  int readyLevel = 0;
+  
+  // 생성자는 자바와 똑같음
+  Town(String townName, int readyLevel){
+    this.townName = townName; //여기서 this.townName은 class내부 townName
+    this.readyLevel = readyLevel; // this가 없는 readyLevel은 매개변수
+    
+    print(this.townName);
+    print(this.readyLevel);
+  }
+  
+  welcome(){
+    print("$townName에 오신것을 환영합니다.");
+  }
+  
+  level(){
+    print("$townName의 적정레벨은 $readyLevel입니다.");
+  }
+  
+  
+}

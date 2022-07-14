@@ -1,0 +1,43 @@
+String real(String str1, {String str2= '\n다시 플레이'}){ 
+  // str2을 {}로 묶으면 값이 넘어오지 않을 경우에만 str2 ='다시 플레이'
+  // 함수 정의문
+  return '적의 치명적인 일격! $str1 $str2';
+}
+
+void main() {
+  //named optional parameter 
+  // c , c++
+  
+  // 놀이동산
+  // 어른 2명이요 ( 아이는 0명 )
+  // 아이 3, 어른 2명이요
+  
+  // 함수 호출문
+  String res = real('플레이어가 사망했습니다.', str2:'\n부활하시겠습니까?');
+  print(res);
+  
+  String res2 = real('플레이어가 사망했습니다.'); //값을 넘기지 않아도 
+  // 함수 정의문에서 데이터 처리를 해주어 상관없음
+  print(res2); 
+  
+  
+  // positional optional parameter (매개변수 위치)
+  
+  
+  int res3 = callnum(100,200);
+  
+  print(res3);
+  
+  int res4 = callnum(100);
+  
+  print(res4);
+
+  
+}
+
+int callnum(int i, [int j=0]){
+  
+  int res = i+j;
+  return res;
+}
+

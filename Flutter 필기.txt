@@ -1,0 +1,184 @@
+########### Flutter 의 대두
+	#- 일반적으로
+		2007년 IOS : Objective-C ==> Swift 형태로
+		2008년 Android : Java ==> Kotlin 형태로
+	#- 같은 앱을 2개로 나누어 개발에 문제발생
+	#- 그래서 hybrid app 등이 대두
+		(hybrid app : html, css, js로 개발, 단, 아주 깊은 사양의 처리가 필요없는 경우에 좋다
+		(phonehap) )
+		
+		native app : 중간 변환 없이 안드로이드 및 iOS의 기계어 코드로 작성되는 앱으로
+			각각의 모바일 기기 의 특성에 깊은 사양까지 맞게 사용하고자 할때, 단
+				안드로이드, iOS를 따로 개발해야)
+
+	(참고) 추억의 앱스프레소
+	
+	#- 그후 2개를 한꺼번에 해결하는 cross-platform 으로 javascript base인 react native를 facebook에서 2015년에 만듬
+	#- 이어서 2017년 google에서 flutter 가 나옴
+
+#### ffutter 가 native app이 되기까지
+	dart 언어(flutter api) + 위젯 코드 소스
+	==> compile
+	=> android, ios의 native code로 만들어짐 (kotlin, swift)
+	
+#.	flutter의 구조
+	1) framwork : dart 언어로 작성, "everything is a widget" 처럼 위젯 중심,
+			위젯은 class의 객체(instance), 카메라, 위치 관련 등의 플러그안
+	2) engine : c c++로 작성되어 있고 dart compile 등 역할
+	3) embedder : jit의 jvm처럼 android platform은 java, c, c++로 작성되고 ios platform은 object c, object c++로 작성, 
+			native app을 위한 연결 부분 역할
+
+#. UI design : 
+	1) android : meterial design 으로 무엇을 누를지 직관적으로 알게되며
+					version 5.0 lollipop 부터 적용시작
+	2) ios : cupertino design
+	(참고) flutter는 skia graphic library 내장으로 각 device 출력되는 UI화면 이 일관성있게 같은 style로 출력
+####. flutter 다운로드 및 설치하기
+
+#. flutter sdk 다운로드 및 압축풀기
+https://flutter.dev/ 사이트에서 우측상단 getStarted 클릭
+
+	- 보이는 install 화면에서 windows 선택
+	- 약간 아래에서 flutter sdk 인 .zip 클릭하여 다운
+	- 압축을 풀어 예를 들어 d:\flutterinstall 폴더에 설치
+
+	#. 환경 변수 설정
+- winkey + i - 시스템 - 맨아래 정보 - 우측  고급 시스템 설정 - 환경 변수
+	(or 내 pc - 마오 - 속성 - 고급시스템 설정 - 환경변수)
+
+	- 아래 시스템 변수 path에 - (편집-새로만들기) - D:\flutterinstall\flutter\bin 입력
+	- 확인 - 확인 - 확인
+#. flutter doctor 를 사용하여 설치된것 확인
+
+	-. 윈도우 탐색기로 flutter 폴더로 간다
+	-. 아무것도 선택 안한 후 shift + 마오, 여기서 powershell 창 열기..
+	-. 나온 dos화면에서 flutter doctor 입력 - 엔터
+
+####. 	Android Studio ( + SDK) 다운로드 및 설치
+-	https://developer.android.com/studio 에서
+	[download andriod studio] 클릭하여
+	- 동의 체크 후 - download 버튼 클릭
+	- 다운받음 Android Studio exe를
+	예를 들어 D:\ans\anstudio 폴더까지 만들어
+	해달 폴더에 설치
+	-completed 후 -next
+	... finish
+	- start 후 "do not import settings" 선택 
+
+welcome 화면 나오면
+	Android-sdk 설치를 위해 next
+	- custom 선택 -next
+	- jdk 폴더는 ans에 내장된 open jdk 인
+	디폴트 그대로 D:\ans\anstudio\jre 선택
+	- next
+	- ui 테마 중 상단 darcula or light 중 선택 -next -finish
+	- 상단 큰제목 SDK Components setup 나오면
+	- Andriod virtual device 도 체크
+	- 아래 Andriod SDK locations 에서
+		D:\ans\anstudio_sdk 폴더를 설정
+		(만일 한번 standard로 처리한 경우)
+		C:\users\사용자명\Appdata\local\andriod\sdk로 처리됨
+	-next
+	-emulator settings -next
+	-finish
+	
+	(참고) 주요 java 통합개발툴 (JAVA IDE)
+	1) Android Studio 는 인텔리제이 에서 개발한 java 통합개발툴 (IDE) 무료
+
+####. Android Studio 로 아무 프로젝트 만들기
+	file - new project
+	-좌측 phone and tablet
+	empty activity - next
+	-name HelloAndroid
+	-save Loaction은 자유
+	-language 는 java
+	-minimum sdk는 바로아래 %를 참조하여 선택
+	-finish
+
+####. Android Studio 에 flutter "플러그인" 하기
+	상단 file-settings -Plugins - flutter 옆 [install] 클릭하여
+	- third party 약관 -accept
+	- dart plugin 할건지 install 클릭
+	- install 버튼 자리에 보이는 [restart ide]를 누른다
+	- restart - ok
+
+- 시스템 변수 
+ANDROID_HOME 만들어서
+sdk 설정
+C:\Users\user\AppData\Local\Android\Sdk
+
+####. flutter 프로젝트 만들기
+	기존 Android Studio 재실행
+	file - new - new flutter project로 시작
+	( or 상단 [new flutter project] 를 눌러 시작)
+좌측 중간 flutter 선택 후 우측에 sdk 경로 입력,
+얘룰 들면 ... 클릭하여 D:\flutterinstall\flutter 선택
+- next
+- 이름 HelloFlutter 2 주고 - project location 지정
+	실제 이 이름은 모바일 폰의 어플 이름으로 적용되는데 추후 변경은 가능
+- Android Language 를 java 선택후 finish
+
+- // 일단 이것은 설명 생략 (open project - new windows 선택)
+- 실행 : 화면 우상단 play 아이콘 클릭
+
+==>(1) 디바이스 선택 크롬으로 실행
+
+
+==>(2) avd로 실행 안드로이드 버츄얼 디바이스 인듯?
+#####. AVD 만들기 no devices 에러 해결하기
+
+우측 상단 AVD Manger 아이콘 클릭
+	(가상기기 에뮬레이터 크리에이트 하여 우측 상단 안드로이드 머리+ 폰 아이콘 클릭)
+- 	+create virtual device 클릭
+	- 왼쪽에서 phone
+	- 중간에 play store 표시가 있는 것 중 하나 선택
+	- next - 맨위 앞 R download 를 클릭
+		(우측 맨 아래 api level distribution char를 눌러봄)
+	- accept 선택
+	(예 : NEXUS 5 api 24 + 안드로이드 7.0 (구글플레이) + 너겟)을 찾아 선택
+	- component installer 가동
+	- finish
+
+	-큰 제목 system image 에서
+	- R 그대로 두고 -next
+	- avd가 생성됨
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+class Parent{
+  int? id;
+  String? name;
+}
+
+class Child extends Parent{
+  int? age;
+}
+
+
+void main() {
+
+  // upcasting
+  // downcasting
+  
+  
+  Parent p1 = Parent();
+  Child c1 = Child();
+  p1.id = 100;
+  p1.name = "박용호";
+  
+  Parent p2 = c1;
+  Child c2 = p2 as Child; // Child c2 = Child();
+  // 자바에서 Child c2 = (Child)p2;
+  
+  c1.id = 200;
+  c1.name = "appp";
+  
+  print(p1.toString()); //Instance of 'Parent'
+  print(p2.toString());
+  print(c1.toString());
+  
+  print("${p1.id}  ${c1.id} ${c2.id}");
+  print("${p1.name}  ${c1.name} ${c2.name}");
+  print("${p2.age}  ${c1.age} ${c2.age}");
+  //print("${p1.age}  ${c1.age}"); // p1은 age를 모른다 부모객체이기 떄문에
+
+}
