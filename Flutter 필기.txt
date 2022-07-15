@@ -143,10 +143,141 @@ C:\Users\user\AppData\Local\Android\Sdk
 	- R 그대로 두고 -next
 	- avd가 생성됨
 
+####. avd 띄우기 ( 안드로이드 버전에 따라 뜨는 모양이 다름)
+	우측 상단 "AVD Manager " 아이콘 클릭
+	- your virtual device 가 뜨고 맨뒤 action의 play 아이콘을 누른다
+	
+	(main.dart가 보이는 초기화면 상단 콤보박스에서 우측 화살표 눌러
+	open android emulator 누르면 avd가 뜬다
 
+(참고) avd view mode - window or float
 
+hot reload, but restart, Full Restart
 
+1) hot reload (상단에 번개아이콘, 왼쪽 아래 터미널 창에도)
+	소스 글자를 고치면 바로 반영됨
+	즉, app 실행 중인데 변경사항이 바로 적용되어 실행됨
+		(소스 고치기전 avd 를 화면에 띄워놓고 확인해보자)
+main() 및 initState()는 호출 x, app state 유지 o, widget Trees는 다시 구성함
+		예) 소스입력하면 자동저장, 평소 자동저장 단축키는 ctrl+s
+		그러므로 일단 한번 run한 상태에서 몇글자 수정후 ctrl+s를 누르면
+		hot reload가 되면서 실행 결과가 바로 적용되서 출력이 된다
 
+2) hot restart ( 왼쪽 아래 터미널창)
+	app state 유지 x, app new-start
+
+3) Full Restart : 전부 다시 컴파일하고 실행
+
+#. 프로젝트 구조
+	1) Flutter COMPILE src code : android 폴더, ios 폴더
+	2) pubspec.yaml : libaray, image 같은 resource 등에 대해 기술
+
+#. lib에 다른 이름의 aa.dart 만들수 있다
+
+shift +f6 -> 드래그한 문자열 다른 문자열로 바꾸기
+
+###. Scaffold class(위젯)
+
+        디자인의 골격 개념
+
+###. AppBar        
+
+        Android 의 TitleBar, IOS 의 Navigation Bar 개념
+
+###. Body
+
+        글씨, 버튼 등을 보여주는 화면의 center 영역
+
+###. BottomNavigationBar
+
+        다른 창으로 갈 수 있는 버튼들이 있는 영역으로
+        Android의 Bottom Navigation Bar, IOS의 Tab Bar 개념
+        여기에선 단순히 50픽셀 만큼 띄운 공간으로 세팅해 두었습니다.
+
+###. FloatingActionButton
+
+        floating 효과를 가지는 버튼
+
+(참고) 단축키는 기본이 android studio 와 같다
+
+#. 주석 : 자바와 같다
+	// 
+	// todo : 이건 나중에 몰아서 볼수도 있따 ( 화면 왼쪽하단의 TODO 탭 클릭)
+#. 소스안에 주석등으로 달아논 url 주소로 바로 가는 방법
+	해당 주소에 마우스 놓고 ctrl+ 마우스 클릭
+# 주석색 & font
+	file - setting - editor - color scheme - dart-line comment - 우측 아래 inherit from 체크 지우고 색 정함
+	block comment 도 마찬가지로 색정함 - font - 17정도
+#. 파일명 rename 단축키 or 파일내 단어 일괄 rename 하기
+	shift + F6
+#. 코드 정렬은 ctrl + alt + L 
+
+#. 모든것은 위젯이다 widget으로 UI를 만든다
+#. 위젯구조 
+	MateriaApp(구글 Material 디자인 사용)
+		|
+		home
+		|
+		Scaffold(디자인 골격)
+		|
+	appBar		Body
+	   |	 	  |
+	text		text
+
+###. 기본 원리
+	#. widget tree
+			-위젯이 widget tree에 등록시 화면으로 그려짐,
+			반대일 때 화면에서 지워진다
+		(참고) widget tree 보기
+			flutter inspector 사용 : 우측 flutter inspector를 눌러 설명을 보고
+				기다린 후 확인
+			or 상단 view - tool windows - flutter inspector 를 눌러 확인
+
+#####. 정렬 ( 반응형 웹 : flex )
+	Row : 기본이 가로 가운데 정렬
+		MainAxisAlignment : --> 방향
+		CrossAxisAlignment : ↓ 방향
+
+	Column : 기본이 세로 가운데 정렬
+		MainAxisAlignment  : ↓
+		CrossAxisAlignment : --> 방향
+	//=================================
+	Ex)))) 
+	Row, CrossAxisAlignment.start
+	가로 가운데, 맨위로 붙음
+
+	Row, CrossAxisAlignment.center
+	가로 가운데, 상하 center
+
+	Row, CrossAxisAlignment.end
+	가로 가운데, 맨아래로 붙음
+	-------------------
+	Row, MainAxisAlignment.start
+	가로 가운데, 맨좌로 붙음
+	
+	Row, MainAxisAlignment.center
+	가로 가운데, 좌우 center
+	
+	Row, MainAxisAlignment.end
+	가로 가운데, 맨우로 붙음
+	==============
+	Column, MainAxisAlignment.start
+	세로 가운데, 맨 위로 붙음
+	
+	Column, MainAxisAlignment.center
+	세로 가운데, 상하 center
+
+	Column, MainAxisAlignment.end
+	세로 가운데, 맨 밑으로 붙음
+
+	Column, CrossAxisAlignment.start
+	세로 가운데, 맨 좌로 붙음
+ 
+	Column, CrossAxisAlignment.center
+	세로 가운데, 좌우 center 
+
+	Column, CrossAxisAlignment.end
+	세로 가운데, 맨 우로 붙음
 
 
 
