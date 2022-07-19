@@ -280,7 +280,14 @@ shift +f6 -> 드래그한 문자열 다른 문자열로 바꾸기
 	세로 가운데, 맨 우로 붙음
 
 
+####APK
+	안드로이드의 확장자 .apk
+	zip 이므로 apk -> zip -> 압축해제
+assets : 이미지 & 폰트
 
+lib : library
+res : xml
+AndroidMainfext.xml : 패키지명, 버전
 
 
 
