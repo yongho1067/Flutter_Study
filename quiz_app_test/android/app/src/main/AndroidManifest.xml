@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.quiz_app_test">
    <application
-        android:label="quiz_app_test"
+        android:label="간단! MBTI 테스트"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

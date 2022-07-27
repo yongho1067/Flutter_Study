@@ -38,8 +38,8 @@ class ResultScreen extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.black),
-                color: Colors.black,
+                border: Border.all(color: Colors.blueAccent),
+                color: Colors.blueAccent,
               ),
               width: width * 0.85,
               height: height * 0.5,
@@ -51,7 +51,7 @@ class ResultScreen extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.black),
+                      border: Border.all(color: Colors.blueAccent),
                       color: Colors.white,
                     ),
                     width: width * 0.73,
@@ -112,7 +112,7 @@ class ResultScreen extends StatelessWidget {
                         },
                         child: Text("홈으로 돌아가기"),
                         color: Colors.white,
-                        textColor: Colors.black,
+                        textColor: Colors.blueAccent,
                       ),
                     ),
                   )

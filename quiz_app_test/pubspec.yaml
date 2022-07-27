@@ -72,6 +72,11 @@ flutter:
     - images/quiz_background.jpg
     - images/quiz_background2.png
     - images/quiz_background3.jpg
+    - images/mbti.jpg
+    - images/mbti2.jpg
+    - images/mbti3.jpg
+    - images/mbti4.jpg
+    - images/mbti5.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

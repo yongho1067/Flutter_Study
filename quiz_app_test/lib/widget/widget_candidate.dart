@@ -29,7 +29,7 @@ class _CandWidgetState extends State<CandWidget>{
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.black),
-        color: widget.answerState ? Colors.black : Colors.white
+        color: widget.answerState ? Colors.blueAccent : Colors.white
       ),
       child: InkWell(
         child: Text(

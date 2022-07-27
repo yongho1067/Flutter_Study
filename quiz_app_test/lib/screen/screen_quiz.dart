@@ -15,7 +15,7 @@ class QuizScreen extends StatefulWidget{
 
 class _QuizScreenState extends State<QuizScreen>{
 
-  List<int> _answers = [-1, -1, -1];
+  List<int> _answers = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
   List<bool> _answerState = [false, false, false, false];
   int _currentIndex = 0;
   SwiperController _controller = SwiperController();
@@ -27,25 +27,14 @@ class _QuizScreenState extends State<QuizScreen>{
     double width = screenSize.width;
     double height = screenSize.height;
 
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: SafeArea(
-        child:Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.7), BlendMode.dstATop),
-              image: AssetImage("images/quiz_background3.jpg")
-             ),
-            ),
+    return SafeArea(
           child: Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.blueAccent,
             body: Center(
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.transparent),
+                  border: Border.all(color: Colors.blueAccent),
                 ),
                 width: width*0.85,
                 height: height * 0.5,
@@ -61,9 +50,7 @@ class _QuizScreenState extends State<QuizScreen>{
               ),
             ),
           ),
-        )
-      )
-    );
+        );
   }
 
   Widget _buildQuizCard(Quiz quiz, double width, double height){
@@ -116,7 +103,7 @@ class _QuizScreenState extends State<QuizScreen>{
                       ? Text("결과보기")
                       : Text("다음문제"),
                   textColor: Colors.white,
-                  color: Colors.black,
+                  color: Colors.blueAccent,
                   onPressed: _answers[_currentIndex] == -1 ? null : () {
                       if (_currentIndex == widget.quizs.length - 1) {
                         Navigator.push(
@@ -140,7 +127,7 @@ class _QuizScreenState extends State<QuizScreen>{
 
   List<Widget> _buildCandidates(double width, Quiz quiz){
     List<Widget> _children = [];
-    for (int i = 0; i < 4; i++){
+    for (int i = 0; i < 2; i++){
       _children.add(
         CandWidget(
           index: i,

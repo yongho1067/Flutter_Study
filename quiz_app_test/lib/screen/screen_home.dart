@@ -9,21 +9,67 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Quiz> quizs = [
-    Quiz.fromMap({
+    Quiz.fromMap({ // TODO => E 적인 질문 (O/X)
       "title" : "test",
-      "candidates" : ["a","b","c","d"],
+      "candidates" : ["O","X"],
       "answer" : 0
     }),
-    Quiz.fromMap({
+    Quiz.fromMap({  // TODO => E 적인 질문 (O/X)
       "title" : "test",
-      "candidates" : ["a","b","c","d"],
+      "candidates" : ["O","X"],
       "answer" : 0
     }),
-    Quiz.fromMap({
+    Quiz.fromMap({  // TODO => I 적인 질문 (O/X)
       "title" : "test",
-      "candidates" : ["a","b","c","d"],
+      "candidates" : ["O","X"],
       "answer" : 0
     }),
+    Quiz.fromMap({ // TODO => N 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => S 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => N 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => T 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => P 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => J 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+    Quiz.fromMap({ // TODO => J 적인 질문 (O/X)
+      "title" : "test",
+      "candidates" : ["O","X"],
+      "answer" : 0
+    }),
+
   ];
   
   @override
@@ -37,8 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: Text("My Quiz App"),
-            backgroundColor: Colors.black,
+            title: Text("간단한 MBTI 테스트 "),
+            backgroundColor: Colors.blueAccent,
             leading: Container(),
           ),
           body: Column(
@@ -46,28 +92,28 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: Image.asset("images/quiz.png", width: width * 0.8),
+                child: Image.asset("images/mbti5.jpg", width: width * 0.8),
               ),
               Padding(
                 padding: EdgeInsets.all(width * 0.024),
               ),
               Text(
-                "플러터 퀴즈 앱",
+                "간단한 MBTI 테스트 앱",
                 style: TextStyle(
                   fontSize: width * 0.065,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "퀴즈를 풀기 전 안내사항 입니다.\n꼼꼼히 읽고 퀴즈 풀기를 눌러주세요.",
+                "MBTI 테스트 전 안내사항 입니다.\n단순 재미를 위한 간단한 MBTI 테스트입니다.",
                 textAlign: TextAlign.center,
               ),
               Padding(
                 padding: EdgeInsets.all(width * 0.048),
               ),
-              _buildStep(width, "1. 랜덤으로 나오는 퀴즈 3개를 풀어보세요."),
-              _buildStep(width, "2. 문제를 잘 읽고 정담을 고른뒤\n다음 문제 버튼을 눌러주세요."),
-              _buildStep(width, "3. 만점을 향해 도전해보세요!"),
+              _buildStep(width, "1. 총 테스트 문항은 12문항 입니다."),
+              _buildStep(width, "2. 문항을 잘 읽고 본인의 대답을 고른뒤\n다음 문제 버튼을 눌러주세요."),
+              _buildStep(width, "3. 친구들과 공유해서 각자의 결과를 확인해보아요!"),
               Padding(
                 padding: EdgeInsets.all(width*0.048),
               ),
@@ -84,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text("지금 퀴즈 풀기",
                         style: TextStyle(color: Colors.white)
                       ),
-                      color: Colors.black,
+                      color: Colors.blueAccent,
                       onPressed: () {
                         Navigator.push(
                             context, MaterialPageRoute(
