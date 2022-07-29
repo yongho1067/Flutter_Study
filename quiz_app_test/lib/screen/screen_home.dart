@@ -10,62 +10,62 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Quiz> quizs = [
     Quiz.fromMap({ // TODO => E 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "단체활동에 참여하는 것을 즐기는 편이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({  // TODO => E 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "친구들과 약속을 잡을때 둘보단 셋이 좋다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({  // TODO => I 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "다른 사람보다는 혼자의 시간을 보내고 싶어한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => N 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "결말을 자신의 방식으로 해석할 수 있는 책과 영화를 좋아한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => S 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "\"만약에~\" 라는 질문에 대해 깊게 생각하는 일은 시간 낭비라고 생각한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => N 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "현재의 성과보다는 미래의 비전을 더 중요하게 생각한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => T 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "감정보다는 이성을 따르는 편이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "자신과 배경이 완전히 다른 사람에게도 쉽게 공감할 수 있다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "어떤 문제가 발생하면 문제해결보다는 공감이 우선이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => P 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "내일 입을 옷은 내일 정하는 편이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => J 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "계획에 차질이 생기면 빠르게 다른 대안을 만들어 차질이 없게 한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => J 적인 질문 (O/X)
-      "title" : "test",
+      "title" : "이미 내린 결정에 대해서는 다시 생각하지 않는 편이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
