@@ -5,6 +5,11 @@ import 'package:quiz_app_test/screen/screen_home.dart';
 class ResultScreen extends StatelessWidget {
   List<int> answers;
   List<Quiz> quizs;
+  List<int> mbtiEI = [0,0];
+  List<int> mbtiSN = [0,0];
+  List<int> mbtiTF = [0,0];
+  List<int> mbtiPJ = [0,0];
+  List<String> mbti = ["", "", "", ""];
   ResultScreen({ required this.answers, required this.quizs});
 
   @override
@@ -19,6 +24,104 @@ class ResultScreen extends StatelessWidget {
         score += 1;
       }
     }
+
+    if(quizs[0].answer == 0){ //
+      mbtiEI[0] += 1; // E 점수 1점 상승
+    }else{
+      mbtiEI[1] += 1; // I 점수 1점 상승
+    }
+
+    if(quizs[1].answer == 0){ //
+      mbtiEI[0] += 1; // E 점수 1점 상승
+    }else{
+      mbtiEI[1] += 1; // I 점수 1점 상승
+    }
+
+    if(quizs[2].answer == 0){ //
+      mbtiEI[1] += 1; // I 점수 1점 상승
+    }else{
+      mbtiEI[0] += 1; // E 점수 1점 상승
+    }
+
+    if(mbtiEI[0] > mbtiEI[1]){
+      mbti[0] = "E";
+    }else{
+      mbti[0] = "I";
+    }
+
+    if(quizs[3].answer == 0){ //
+      mbtiSN[1] += 1; // N 점수 1점 상승
+    }else{
+      mbtiSN[0] += 1; // S 점수 1점 상승
+    }
+
+    if(quizs[4].answer == 0){ //
+      mbtiSN[0] += 1; // S 점수 1점 상승
+    }else{
+      mbtiSN[1] += 1; // N 점수 1점 상승
+    }
+
+    if(quizs[5].answer == 0){ //
+      mbtiSN[1] += 1; // N 점수 1점 상승
+    }else{
+      mbtiSN[0] += 1; // S 점수 1점 상승
+    }
+
+    if(mbtiSN[0] > mbtiSN[1]){
+      mbti[1] = "S";
+    }else{
+      mbti[1] = "N";
+    }
+
+    if(quizs[6].answer == 0){ //
+      mbtiTF[0] += 1; // T 점수 1점 상승
+    }else{
+      mbtiTF[1] += 1; // F 점수 1점 상승
+    }
+
+    if(quizs[7].answer == 0){ //
+      mbtiTF[1] += 1; // F 점수 1점 상승
+    }else{
+      mbtiTF[0] += 1; // T 점수 1점 상승
+    }
+
+    if(quizs[8].answer == 0){ //
+      mbtiTF[1] += 1; // F 점수 1점 상승
+    }else{
+      mbtiTF[0] += 1; // T 점수 1점 상승
+    }
+
+    if(mbtiTF[0] > mbtiTF[1]){
+      mbti[2] = "T";
+    }else{
+      mbti[2] = "F";
+    }
+
+    if(quizs[9].answer == 0){ //
+      mbtiPJ[0] += 1; // P 점수 1점 상승
+    }else{
+      mbtiPJ[1] += 1; // J 점수 1점 상승
+    }
+
+    if(quizs[10].answer == 0){ //
+      mbtiPJ[1] += 1; // J 점수 1점 상승
+    }else{
+      mbtiPJ[0] += 1; // P 점수 1점 상승
+    }
+
+    if(quizs[11].answer == 0){ //
+      mbtiPJ[1] += 1; // J 점수 1점 상승
+    }else{
+      mbtiPJ[0] += 1; // P 점수 1점 상승
+    }
+
+    if(mbtiPJ[0] > mbtiPJ[1]){
+      mbti[3] = "P";
+    }else{
+      mbti[3] = "J";
+    }
+
+    print(mbti);
 
     return WillPopScope(
       onWillPop: () async => false,

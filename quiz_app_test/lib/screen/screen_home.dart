@@ -45,12 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "자신과 배경이 완전히 다른 사람에게도 쉽게 공감할 수 있다.",
+      "title" : "자신과 가치관이 다르다 하더라도 타인의 마음을 공감할 수 있다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "어떤 문제가 발생하면 문제해결보다는 공감이 우선이다.",
+      "title" : "친구에게 문제가 발생하면 의견제시 보다는 공감이 더 도움이 된다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),

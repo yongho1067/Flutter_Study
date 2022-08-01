@@ -17,6 +17,9 @@ class _QuizScreenState extends State<QuizScreen>{
 
   List<int> _answers = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
   List<bool> _answerState = [false, false, false, false];
+
+
+
   int _currentIndex = 0;
   SwiperController _controller = SwiperController();
 
@@ -136,7 +139,7 @@ class _QuizScreenState extends State<QuizScreen>{
           answerState: _answerState[i],
           tap: (){
             setState(() {
-              for (int j = 0; j < 4; j++){
+              for (int j = 0; j < 2; j++){
                 if (j == i){
                   _answerState[j] = true;
                   _answers[_currentIndex] = j;
