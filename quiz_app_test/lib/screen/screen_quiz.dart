@@ -1,9 +1,23 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter/foundation.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:quiz_app_test/model/model_quiz.dart';
 import 'package:quiz_app_test/screen/screen_result.dart';
 import 'package:quiz_app_test/widget/widget_candidate.dart';
+
+const Map<String, String> UNIT_ID = kReleaseMode
+    ? {
+  'ios': 'ca-app-pub-3940256099942544/2934735716',
+  'android': 'ca-app-pub-3940256099942544/6300978111',
+}
+    : {
+  'ios': 'ca-app-pub-3940256099942544/2934735716',
+  'android': 'ca-app-pub-3940256099942544/6300978111',
+};
+
+
 
 class QuizScreen extends StatefulWidget{
   List<Quiz> quizs;
@@ -23,24 +37,50 @@ class _QuizScreenState extends State<QuizScreen>{
   int _currentIndex = 0;
   SwiperController _controller = SwiperController();
 
-
   @override
   Widget build(BuildContext context){
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
+    TargetPlatform os = Theme.of(context).platform;
+
+    BannerAd banner = BannerAd(
+      listener: BannerAdListener(
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {},
+        onAdLoaded: (_) {},
+      ),
+      size: AdSize.fullBanner,
+      adUnitId: UNIT_ID[os == TargetPlatform.iOS ? 'ios' : 'android']!,
+      request: AdRequest(),
+    )..load();
+
+
 
     return SafeArea(
           child: Scaffold(
             backgroundColor: Colors.blueAccent,
             body: Center(
-              child: Container(
+              child: Column(
+              children: [
+                Center(
+                  child: Container(
+                    height: 100,
+                    padding:EdgeInsets.fromLTRB(0, 0, 0, width*0.12),
+                    child: AdWidget(
+                      ad: banner,
+                    ),
+                  ),
+                ),
+                Container(
+                  height: height * 0.1,
+                ),
+                Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: Colors.blueAccent),
                 ),
-                width: width*0.85,
-                height: height * 0.5,
+                width: width*0.9,
+                height: height * 0.4,
                 child: Swiper(
                   controller: _controller,
                   physics: NeverScrollableScrollPhysics(),
@@ -51,10 +91,14 @@ class _QuizScreenState extends State<QuizScreen>{
                   },
                 ),
               ),
+            ]
             ),
           ),
+          ),
         );
+
   }
+
 
   Widget _buildQuizCard(Quiz quiz, double width, double height){
     return Container(
@@ -104,7 +148,7 @@ class _QuizScreenState extends State<QuizScreen>{
                 child: RaisedButton(
                   child: _currentIndex == widget.quizs.length - 1
                       ? Text("결과보기")
-                      : Text("다음문제"),
+                      : Text("다음문항"),
                   textColor: Colors.white,
                   color: Colors.blueAccent,
                   onPressed: _answers[_currentIndex] == -1 ? null : () {
@@ -143,6 +187,7 @@ class _QuizScreenState extends State<QuizScreen>{
                 if (j == i){
                   _answerState[j] = true;
                   _answers[_currentIndex] = j;
+
                   print(_answers[_currentIndex]);
                 }else{
                   _answerState[j] = false;

@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app_test/model/model_quiz.dart';
 import 'package:quiz_app_test/screen/screen_quiz.dart';
+import 'package:flutter/foundation.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+const Map<String, String> UNIT_ID = kReleaseMode
+    ? {
+  'ios': 'ca-app-pub-3940256099942544/2934735716',
+  'android': 'ca-app-pub-3940256099942544/6300978111',
+}
+    : {
+  'ios': 'ca-app-pub-3940256099942544/2934735716',
+  'android': 'ca-app-pub-3940256099942544/6300978111',
+};
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -45,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "자신과 가치관이 다르다 하더라도 타인의 마음을 공감할 수 있다.",
+      "title" : "자신과 가치관이 다르다 하더라도 타인의 마음을 쉽게 공감할 수 있다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
@@ -77,20 +89,35 @@ class _HomeScreenState extends State<HomeScreen> {
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
+    TargetPlatform os = Theme.of(context).platform;
+
+    BannerAd banner = BannerAd(
+      listener: BannerAdListener(
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {},
+        onAdLoaded: (_) {},
+      ),
+      size: AdSize.fullBanner,
+      adUnitId: UNIT_ID[os == TargetPlatform.iOS ? 'ios' : 'android']!,
+      request: AdRequest(),
+    )..load();
+
 
     return WillPopScope(
       onWillPop: () async => false,
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            title: Text("간단한 MBTI 테스트 "),
-            backgroundColor: Colors.blueAccent,
-            leading: Container(),
-          ),
           body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Center(
+                child: Container(
+                  height: 100,
+                  padding:EdgeInsets.fromLTRB(0, 0, 0, width*0.12),
+                  child: AdWidget(
+                    ad: banner,
+                  ),
+                ),
+              ),
               Center(
                 child: Image.asset("images/mbti5.jpg", width: width * 0.8),
               ),
@@ -118,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.all(width*0.048),
               ),
               Container(
-                padding: EdgeInsets.only(bottom: width*0.036),
+                /*padding: EdgeInsets.only(bottom: width*0.036),*/
                 child: Center(
                   child: ButtonTheme(
                     minWidth: width * 0.8,
@@ -127,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10)
                     ),
                     child: RaisedButton(
-                      child: Text("지금 퀴즈 풀기",
+                      child: Text("테스트 시작 !",
                         style: TextStyle(color: Colors.white)
                       ),
                       color: Colors.blueAccent,
@@ -139,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
