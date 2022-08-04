@@ -58,8 +58,16 @@ class _QuizScreenState extends State<QuizScreen>{
 
     return SafeArea(
           child: Scaffold(
-            backgroundColor: Colors.blueAccent,
-            body: Center(
+            backgroundColor: Colors.white,
+            body: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.blue.withOpacity(0.6), BlendMode.dstATop),
+                    image: AssetImage("images/mbti_background.png")
+                ),
+              ),
               child: Column(
               children: [
                 Center(
@@ -72,12 +80,12 @@ class _QuizScreenState extends State<QuizScreen>{
                   ),
                 ),
                 Container(
-                  height: height * 0.1,
+                  height: height * 0.175,
                 ),
                 Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.blueAccent),
+                  border: Border.all(color: Colors.black),
                 ),
                 width: width*0.9,
                 height: height * 0.4,

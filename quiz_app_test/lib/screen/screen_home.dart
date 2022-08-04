@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "자신과 가치관이 다르다 하더라도 타인의 마음을 쉽게 공감할 수 있다.",
+      "title" : "자신과 가치관이 다르다 하더라도 타인의 마음을 공감할 수 있다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
@@ -118,6 +118,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              Container(
+                height: 30,
+              ),
               Center(
                 child: Image.asset("images/mbti5.jpg", width: width * 0.8),
               ),
@@ -127,16 +130,19 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 "간단한 MBTI 테스트 앱",
                 style: TextStyle(
-                  fontSize: width * 0.065,
+                  fontSize: width * 0.08,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 "MBTI 테스트 전 안내사항 입니다.\n단순 재미를 위한 간단한 MBTI 테스트입니다.",
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: width * 0.035
+                ),
               ),
               Padding(
-                padding: EdgeInsets.all(width * 0.048),
+                padding: EdgeInsets.all(width * 0.05),
               ),
               _buildStep(width, "1. 총 테스트 문항은 12문항 입니다."),
               _buildStep(width, "2. 문항을 잘 읽고 본인의 대답을 고른뒤\n다음 문제 버튼을 눌러주세요."),
@@ -145,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.all(width*0.048),
               ),
               Container(
-                /*padding: EdgeInsets.only(bottom: width*0.036),*/
+                padding: EdgeInsets.only(bottom: width*0.036),
                 child: Center(
                   child: ButtonTheme(
                     minWidth: width * 0.8,
@@ -155,7 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: RaisedButton(
                       child: Text("테스트 시작 !",
-                        style: TextStyle(color: Colors.white)
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: width * 0.04,
+                        )
                       ),
                       color: Colors.blueAccent,
                       onPressed: () {

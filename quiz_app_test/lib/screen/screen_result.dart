@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:quiz_app_test/model/model_quiz.dart';
 import 'package:quiz_app_test/screen/screen_home.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
+
 class ResultScreen extends StatelessWidget {
   List<int> answers;
   List<Quiz> quizs;
@@ -15,6 +20,18 @@ class ResultScreen extends StatelessWidget {
   int mbtiJ = 0;
   List<String> mbti = ["", "", "", ""];
   ResultScreen({ required this.answers, required this.quizs});
+
+
+
+  launchKaKaoChannel() async {
+    String url = "https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-${mbti[0].toLowerCase()}${mbti[1].toLowerCase()}${mbti[2].toLowerCase()}${mbti[3].toLowerCase()}";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      Get.snackbar('연결 실패', '010-4176-8410으로\n문의 부탁드립니다.',
+          duration: Duration(seconds: 10), backgroundColor: Colors.white);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +88,7 @@ class ResultScreen extends StatelessWidget {
     }
 
     print(mbti);
+
 
     return WillPopScope(
       onWillPop: () async => false,
@@ -158,9 +176,7 @@ class ResultScreen extends StatelessWidget {
                       ),
                       child: RaisedButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (cotext){
-                            return HomeScreen();
-                          }));
+                          return launchKaKaoChannel();
                         },
                         child: Text("상세 결과 보기"),
                         color: Colors.white,
