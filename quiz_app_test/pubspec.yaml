@@ -32,11 +32,17 @@ dependencies:
     sdk: flutter
   flutter_swiper: ^1.1.6 #
   sqflite: ^2.0.0
-  path: ^1.8.0
-  http: ^0.13.0
-  image_picker: ^0.8.5+3
   auto_size_text:
   google_mobile_ads: 0.13.4
+  kakao_flutter_sdk: ^1.2.1 # 추가
+  kakao_flutter_sdk_share: ^1.2.1 # 카카오톡 공유
+  dio: ^4.0.6 # "
+  json_serializable: ^6.3.1 # "
+  platform: ^3.1.0 # "
+  package_info_plus: ^1.4.3 # "
+  shared_preferences: ^2.0.15 # "
+  crypto: ^3.0.2 # "
+  encrypt: ^5.0.1 # "
 
 
   # The following adds the Cupertino Icons font to your application.

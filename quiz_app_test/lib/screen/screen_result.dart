@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:quiz_app_test/model/model_quiz.dart';
 import 'package:quiz_app_test/screen/screen_home.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -98,8 +99,8 @@ class ResultScreen extends StatelessWidget {
             image: DecorationImage(
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.7), BlendMode.dstATop),
-                image: AssetImage("images/quiz_background3.jpg")
+                Colors.blue.withOpacity(0.6), BlendMode.dstATop),
+                image: AssetImage("images/mbti_background.png")
             ),
           ),
         child: Scaffold(
@@ -112,7 +113,7 @@ class ResultScreen extends StatelessWidget {
                 color: Colors.blueAccent,
               ),
               width: width * 0.85,
-              height: height * 0.5,
+              height: height * 0.65,
               child: Column(
                 children: [
                   Padding(
@@ -125,7 +126,7 @@ class ResultScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     width: width * 0.73,
-                    height: height *0.25,
+                    height: height *0.3,
                     child: Column(
                       children: [
                         Container(
@@ -145,10 +146,8 @@ class ResultScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Expanded(
-                          child: Container(
-
-                          ),
+                        Container(
+                          height: 25,
                         ),
                         Text(mbti[0]+mbti[1]+mbti[2]+mbti[3],
                         style: TextStyle(
@@ -163,8 +162,8 @@ class ResultScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: Container(),
+                  Container(
+                      height: 50 ,
                   ),
                   Container(
                     padding: EdgeInsets.only(bottom: width * 0.048),
@@ -201,6 +200,53 @@ class ResultScreen extends StatelessWidget {
                         child: Text("홈으로 돌아가기"),
                         color: Colors.white,
                         textColor: Colors.blueAccent,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: width * 0.048),
+                    child: ButtonTheme(
+                      minWidth: width * 0.73,
+                      height: height * 0.05,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: RaisedButton(
+                        onPressed: () async {
+                          bool result = await ShareClient.instance
+                              .isKakaoTalkSharingAvailable(); // 카카오톡 설치 여부 확인
+                          if (result) {
+                            // 설치 되어있을 때
+                            print('카카오톡으로 공유 가능');
+                          } else {
+                            // 설치 안되어있을 때
+                            print('카카오톡 미설치: 웹 공유 기능 사용 권장');
+                          }
+                          // 사용자 정의 템플릿 ID
+                          int templateId = 80473; // 스크랩할 웹 페이지 URL
+                          String url = "https://naver.com";
+
+                          try {
+                            Uri shareUrl = await WebSharerClient
+                                .instance
+                                .makeScrapUrl(
+                                url: url,
+                                templateId: templateId,
+                                templateArgs: {'key1': 'value1'});
+                            await launchBrowserTab(shareUrl);
+                          } catch (error) {
+                            print('카카오톡 공유 실패 $error');
+                          }
+
+                          /*Navigator.push(context,
+                              MaterialPageRoute(builder: (cotext) {
+                                return HomeScreen();
+                              }));*/
+
+                        },
+                        child: Icon(Icons.share),
+                        color: Colors.white,
+                        textColor: Colors.black,
                       ),
                     ),
                   ),
