@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Quiz> quizs = [
     Quiz.fromMap({ // TODO => E 적인 질문 (O/X)
-      "title" : "단체활동에 참여하는 것을 즐기는 편이다.",
+      "title" : "스마트폰이 없더라도 혼밥하는게 두렵지 않다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
@@ -32,52 +32,52 @@ class _HomeScreenState extends State<HomeScreen> {
       "answer" : 0
     }),
     Quiz.fromMap({  // TODO => I 적인 질문 (O/X)
-      "title" : "다른 사람보다는 혼자의 시간을 보내고 싶어한다.",
+      "title" : "타인과 대화 중 갑자기 대화가 끊기는 상황을 어색해 한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => N 적인 질문 (O/X)
-      "title" : "결말을 자신의 방식으로 해석할 수 있는 책과 영화를 좋아한다.",
+      "title" : "쓸모가 있든 없든 새로운 아이디어가 잘 떠오르는 편이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => S 적인 질문 (O/X)
-      "title" : "\"만약에~\" 라는 질문에 대해 깊게 생각하는 일은 시간 낭비라고 생각한다.",
-      "candidates" : ["O","X"],
+      "title" : "바나나 하면 가장 먼저 떠오르는 것은?",
+      "candidates" : ["노란색","원숭이"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => N 적인 질문 (O/X)
-      "title" : "현재의 성과보다는 미래의 비전을 더 중요하게 생각한다.",
+      "title" : "\"만약에 내일 지구가 멸망하면 어쩌지?\" 라는 고민을 진지하게 해본적이 있다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => T 적인 질문 (O/X)
-      "title" : "감정보다는 이성을 따르는 편이다.",
+      "title" : "슬픔을 나누면 슬픈사람이 둘이 된다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "자신과 가치관이 다르다 하더라도 타인의 마음을 공감할 수 있다.",
+      "title" : "이해가 안되더라도 공감할 수 있다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => F 적인 질문 (O/X)
-      "title" : "친구에게 문제가 발생하면 의견제시 보다는 공감이 더 도움이 된다.",
+      "title" : "친구에게 문제가 발생하면 의견제시 보다는 공감이 우선 되어야 한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => P 적인 질문 (O/X)
-      "title" : "내일 입을 옷은 내일 정하는 편이다.",
+      "title" : "다음날 입을 옷은 다음날 나가기 전에 정하는 편이다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => J 적인 질문 (O/X)
-      "title" : "계획에 차질이 생기면 빠르게 다른 대안을 만들어 차질이 없게 한다.",
+      "title" : "일정을 시간 단위 혹은 분 단위로 나누어서 계획하는 것을 선호한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),
     Quiz.fromMap({ // TODO => J 적인 질문 (O/X)
-      "title" : "이미 내린 결정에 대해서는 다시 생각하지 않는 편이다.",
+      "title" : "익숙한 장소로 이동할때 익숙한 길로 가는것을 선호한다.",
       "candidates" : ["O","X"],
       "answer" : 0
     }),

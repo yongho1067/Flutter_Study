@@ -3,7 +3,7 @@
 		2007년 IOS : Objective-C ==> Swift 형태로
 		2008년 Android : Java ==> Kotlin 형태로
 	#- 같은 앱을 2개로 나누어 개발에 문제발생
-	#- 그래서 hybrid app 등이 대두
+	#- 그래서 hybrid app 등이 대두w
 		(hybrid app : html, css, js로 개발, 단, 아주 깊은 사양의 처리가 필요없는 경우에 좋다
 		(phonehap) )
 		
