@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app_test/model/model_quiz.dart';
 import 'package:quiz_app_test/screen/screen_quiz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 
 const Map<String, String> UNIT_ID = kReleaseMode
     ? {
@@ -89,17 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
-    TargetPlatform os = Theme.of(context).platform;
 
-    BannerAd banner = BannerAd(
-      listener: BannerAdListener(
-        onAdFailedToLoad: (Ad ad, LoadAdError error) {},
-        onAdLoaded: (_) {},
-      ),
-      size: AdSize.fullBanner,
-      adUnitId: UNIT_ID[os == TargetPlatform.iOS ? 'ios' : 'android']!,
-      request: AdRequest(),
-    )..load();
 
 
     return WillPopScope(
@@ -109,17 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(
-                child: Container(
-                  height: 100,
-                  padding:EdgeInsets.fromLTRB(0, 0, 0, width*0.12),
-                  child: AdWidget(
-                    ad: banner,
-                  ),
-                ),
-              ),
               Container(
-                height: 30,
+                height: 95,
               ),
               Center(
                 child: Image.asset("images/mbti5.jpg", width: width * 0.8),

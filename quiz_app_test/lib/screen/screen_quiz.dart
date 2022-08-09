@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/foundation.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:quiz_app_test/model/model_quiz.dart';
 import 'package:quiz_app_test/screen/screen_result.dart';
 import 'package:quiz_app_test/widget/widget_candidate.dart';
@@ -44,16 +43,6 @@ class _QuizScreenState extends State<QuizScreen>{
     double height = screenSize.height;
     TargetPlatform os = Theme.of(context).platform;
 
-    BannerAd banner = BannerAd(
-      listener: BannerAdListener(
-        onAdFailedToLoad: (Ad ad, LoadAdError error) {},
-        onAdLoaded: (_) {},
-      ),
-      size: AdSize.fullBanner,
-      adUnitId: UNIT_ID[os == TargetPlatform.iOS ? 'ios' : 'android']!,
-      request: AdRequest(),
-    )..load();
-
 
 
     return SafeArea(
@@ -70,17 +59,8 @@ class _QuizScreenState extends State<QuizScreen>{
               ),
               child: Column(
               children: [
-                Center(
-                  child: Container(
-                    height: 100,
-                    padding:EdgeInsets.fromLTRB(0, 0, 0, width*0.12),
-                    child: AdWidget(
-                      ad: banner,
-                    ),
-                  ),
-                ),
                 Container(
-                  height: height * 0.175,
+                  height: 190,
                 ),
                 Container(
                 decoration: BoxDecoration(
